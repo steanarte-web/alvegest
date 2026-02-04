@@ -33,8 +33,8 @@ define('TPL_URL', BASE_URL . 'template/' . $template_scelto . '/');
 
 // 4. CONNESSIONE AL DATABASE
 $servername = "localhost";
-$username ="csm";
-$password = "Qwe782300!";
+$username ="";
+$password = "";
 $dbname = "Alvegest";
 
 
@@ -69,7 +69,7 @@ if (isset($_SESSION['user_id'])) {
     $stmt_log->execute();
 }
 // --- PROTEZIONE SOLA LETTURA ---
-// Se l'utente è un 'ospite' e tenta di inviare dati (POST), lo blocchiamo
+// Se l'utente Ã¨ un 'ospite' e tenta di inviare dati (POST), lo blocchiamo
 if (isset($_SESSION['AC_ruolo']) && $_SESSION['AC_ruolo'] === 'ospite' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     // Reindirizziamo alla stessa pagina con un messaggio di errore
     header("Location: " . $_SERVER['PHP_SELF'] . "?status=error_readonly");
